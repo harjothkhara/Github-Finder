@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Navbar from './components/layout/Navbar';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 class App extends Component {
   render() {
+    const numbers = [1,2,3,4]
     return (
       <div className="App">
-        <h1>Hello from React</h1>
+        <Navbar title={numbers}/>
       </div>
     );
   }
