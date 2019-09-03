@@ -2,8 +2,10 @@
   using React 
 # Hooks-Refactor 
   using hooks and context to refactor to cleaner code and better state management
+  
+  Project: https://githubfinder787878.netlify.com/
 
-his project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
