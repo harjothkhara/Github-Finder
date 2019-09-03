@@ -1,4 +1,7 @@
-# Master Branch - using React and Hooks-Refactor - using hooks and context to refactor to cleaner code and better state management
+# Master Branch
+  using React 
+# Hooks-Refactor 
+  using hooks and context to refactor to cleaner code and better state management
 
 his project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
