@@ -36,10 +36,10 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
             />
         </form>
         {/* if true show the button */}
-        {showClear && (
+        {githubContext.users.length > 0 && (
           <button
             className="btn btn-light btn-block"
-            onClick={clearUsers}>Clear</button>
+            onClick={githubContext.clearUsers}>Clear</button>
         )}
       </div>
     );
@@ -47,8 +47,6 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
 }
 
 Search.propTypes = {
-  clearUsers: PropTypes.func.isRequired,
-  showClear: PropTypes.bool.isRequired,
   setAlert: PropTypes.func.isRequired,
 };
 

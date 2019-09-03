@@ -13,8 +13,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import GithubState from './context/github/GithubState'
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false); //if loading show a spinner, if false, show data.
   const [alert, setAlert] = useState(null);
@@ -29,21 +27,6 @@ const App = () => {
   //   this.setState({ users: res.data, loading: false });
   // }
 
-
-
-  // Get a single Github user
-  const getUser = async (username) => {
-    setLoading(true);
-
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID}
-        &client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-   setUser(res.data);
-   setLoading(false);
-  };
-
   // Get users repo
   const getUserRepos = async (username) => {
    setLoading(true);
@@ -56,13 +39,6 @@ const App = () => {
    setRepos(res.data);
    setLoading(false);
   };
-
-  // Clear users from state
-  const clearUsers = () => {
-    setUsers([]);
-    setLoading(false);
-  };
-
 
   // Set Alert
   const showAlert = (msg, type) => {
@@ -84,22 +60,17 @@ const App = () => {
               render={props => (
               <Fragment>
                 <Search
-                  clearUsers={clearUsers}
-                  showClear={users.length > 0 ? true : false} //passing an expression as a prop
                   setAlert={showAlert}
                 />
-                <Users loading={loading} users={users} />
+                <Users />
              </Fragment>
             )}
            />
            <Route exact path='/about' component={About} />
            <Route exact path='/user/:login' render={props => (
              <User {...props}
-              getUser={getUser}
               getUserRepos={getUserRepos}
-              user={user} //user state
               repos={repos} //repos state
-              loading={loading} //loading state
               />
            )} />
           </Switch>
