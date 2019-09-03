@@ -10,6 +10,8 @@ import About from './components/pages/About';
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import GithubState from './context/github/GithubState'
+
 const App = () => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
@@ -80,6 +82,7 @@ const App = () => {
   };
 
     return (
+      <GithubState>
       <Router>
       <div className="App">
         <Navbar />
@@ -115,6 +118,7 @@ const App = () => {
         </div>
       </div>
       </Router>
+      </GithubState>
     );
 }
 
