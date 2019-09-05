@@ -19,13 +19,14 @@ class App extends Component {
     alert: null
   };
 
-  // async componentDidMount() {
-  //   this.setState({ loading: true });
+  // displays initial 30 users
+  async componentDidMount() {
+    this.setState({ loading: true });
 
-  //   const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+    const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
-  //   this.setState({ users: res.data, loading: false });
-  // }
+    this.setState({ users: res.data, loading: false });
+  }
 
 // Search Github users
   searchUsers = async text => {
@@ -94,7 +95,7 @@ class App extends Component {
                   showClear={users.length > 0 ? true : false} //passing an expression as a prop
                   setAlert={this.setAlert}
                 />
-                <Users loading={loading} users={users} />
+                <Users loading={loading} users={users} user={user} />
              </Fragment>
             )}
            />
